@@ -1,0 +1,460 @@
+/*-----------------------------------*\
+  #register.css - Valka Online
+\*-----------------------------------*/
+
+.register-wrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-wrapper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('../images/valkaBGs.png') fixed center / cover no-repeat;
+  filter: blur(4px) brightness(0.3);
+  z-index: -1;
+}
+
+.register-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+.register-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(10, 10, 12, 0.95), rgba(20, 20, 25, 0.9));
+  border: 1px solid rgba(255, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 30px rgba(255, 0, 0, 0.08),
+    0 0 60px rgba(255, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: cardFloat 1s ease forwards;
+  z-index: 1;
+}
+
+.register-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), transparent 40%, transparent 60%, rgba(255, 0, 0, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes cardFloat {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.register-logo {
+  height: 50px;
+  width: auto;
+  margin: 0 auto 16px;
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3)); }
+  50% { filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)); }
+}
+
+.register-header h1 {
+  font-family: 'Oxanium', cursive;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.register-header p {
+  color: var(--text-secondary, #9999aa);
+  font-size: 0.85rem;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.register-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 480px) {
+  .register-row {
+    grid-template-columns: 1fr;
+  }
+  .register-card {
+    padding: 24px 20px;
+  }
+}
+
+.input-field {
+  position: relative;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #e8e8e8;
+  outline: none;
+  transition: 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.input-field input:focus {
+  border-color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label {
+  transform: translateY(-26px) scale(0.8);
+  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+}
+
+.input-field label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  font-size: 0.85rem;
+  color: var(--text-muted, #666677);
+  transition: 0.25s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.25s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.05);
+  pointer-events: none;
+}
+
+.input-field input:focus ~ .input-glow {
+  opacity: 1;
+}
+
+.register-terms {
+  margin-top: 4px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-secondary, #9999aa);
+  cursor: pointer;
+  position: relative;
+  padding-left: 4px;
+}
+
+.checkbox-label input {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s ease;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.checkbox-label input:checked ~ .checkmark {
+  background: var(--accent, hsla(0, 99%, 46%, 0.76));
+  border-color: var(--accent, hsla(0, 99%, 46%, 0.76));
+}
+
+.checkbox-label input:checked ~ .checkmark::after {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+.checkbox-label a {
+  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  text-decoration: underline;
+  transition: 0.25s ease;
+}
+
+.checkbox-label a:hover {
+  color: #fff;
+}
+
+.register-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, hsla(0, 99%, 46%, 0.76), hsla(0, 99%, 36%, 0.8));
+  color: #fff;
+  font-family: 'Oxanium', cursive;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: 0.5s ease;
+}
+
+.register-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.register-btn:hover {
+  box-shadow:
+    0 0 20px rgba(255, 0, 0, 0.3),
+    0 0 40px rgba(255, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.register-btn i {
+  transition: 0.25s ease;
+}
+
+.register-btn:hover i {
+  transform: translateX(4px);
+}
+
+.register-divider {
+  position: relative;
+  text-align: center;
+  margin: 24px 0 20px;
+}
+
+.register-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.register-divider span {
+  position: relative;
+  background: rgba(10, 10, 12, 0.95);
+  padding: 0 16px;
+  font-size: 0.75rem;
+  color: var(--text-muted, #666677);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.register-social {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.social-discord {
+  background: rgba(88, 101, 242, 0.2);
+  border-color: rgba(88, 101, 242, 0.3);
+}
+
+.social-discord:hover {
+  background: rgba(88, 101, 242, 0.4);
+  border-color: rgba(88, 101, 242, 0.6);
+  transform: translateY(-1px);
+}
+
+.social-google {
+  background: rgba(234, 67, 53, 0.2);
+  border-color: rgba(234, 67, 53, 0.3);
+}
+
+.social-google:hover {
+  background: rgba(234, 67, 53, 0.4);
+  border-color: rgba(234, 67, 53, 0.6);
+  transform: translateY(-1px);
+}
+
+.social-steam {
+  background: rgba(27, 40, 56, 0.4);
+  border-color: rgba(27, 40, 56, 0.5);
+}
+
+.social-steam:hover {
+  background: rgba(27, 40, 56, 0.7);
+  border-color: rgba(27, 40, 56, 0.8);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .register-social {
+    flex-direction: column;
+  }
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #9999aa);
+}
+
+.register-footer a {
+  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.register-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Decorative Elements */
+.register-decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 0, 0, 0.08);
+  animation: decoFloat 8s ease-in-out infinite;
+}
+
+.deco-1 {
+  width: 300px;
+  height: 300px;
+  top: -80px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.deco-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -60px;
+  left: -80px;
+  animation-delay: -2s;
+}
+
+.deco-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: -50px;
+  animation-delay: -4s;
+}
+
+.deco-4 {
+  width: 100px;
+  height: 100px;
+  bottom: 30%;
+  left: -30px;
+  animation-delay: -6s;
+}
+
+@keyframes decoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(90deg); }
+  50% { transform: translateY(5px) rotate(180deg); }
+  75% { transform: translateY(-8px) rotate(270deg); }
+}
+
+.deco-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.06), transparent);
+}
+
+.deco-line-1 {
+  height: 1px;
+  width: 60%;
+  top: 20%;
+  left: -20%;
+  transform: rotate(-15deg);
+}
+
+.deco-line-2 {
+  height: 1px;
+  width: 50%;
+  bottom: 30%;
+  right: -10%;
+  transform: rotate(10deg);
+}
+
+/* Placeholder fix for floating labels */
+.input-field input:not(:placeholder-shown) + label {
+  transform: translateY(-26px) scale(0.8);
+  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+}
+
+.input-field input::placeholder {
+  color: transparent;
+}
