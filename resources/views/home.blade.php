@@ -15,7 +15,7 @@
           </video>
           <div class="featured-banner-overlay"></div>
           <div class="featured-banner-content">
-            <h1 class="featured-title">Welcome to <span class="highlight">Valka Online</span></h1>
+            <h1 class="featured-title"><span id="typed-text"></span><span class="typing-cursor">|</span></h1>
             <p class="featured-desc">Create & Manage Matches. Join the battle and prove your worth!</p>
           </div>
           <a href="#" class="featured-btn"><i class="fas fa-play"></i> Play Now</a>
@@ -29,7 +29,7 @@
           <div class="news-list">
 
             <article class="news-card">
-              <img src="{{ asset('assets/images/bene.png') }}" alt="" class="news-card-img">
+              <img src="{{ asset('assets/images/bene.png') }}" alt="" class="news-card-img" loading="lazy" decoding="async">
               <div class="news-card-body">
                 <div class="news-meta">
                   <span class="news-author"><i class="fas fa-user"></i> Admin</span>
@@ -42,7 +42,7 @@
             </article>
 
             <article class="news-card">
-              <img src="{{ asset('assets/images/foundme1.png') }}" alt="" class="news-card-img">
+              <img src="{{ asset('assets/images/foundme1.png') }}" alt="" class="news-card-img" loading="lazy" decoding="async">
               <div class="news-card-body">
                 <div class="news-meta">
                   <span class="news-author"><i class="fas fa-user"></i> Admin</span>
@@ -90,7 +90,7 @@
           </div>
           <div class="sidebar-box-body">
             <ul class="donators-list">
-              <li class="donator-item">
+              <li class="donator-item donator-top">
                 <span class="donator-rank"><i class="fas fa-crown" style="color:#ffd700"></i></span>
                 <span class="donator-name">Blood</span>
                 <span class="donator-level">9999/9999</span>
@@ -116,6 +116,36 @@
                 <span class="donator-level">5800/6500</span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <div class="sidebar-box-header">
+            <h3><i class="fas fa-clock"></i> Next Event</h3>
+          </div>
+          <div class="sidebar-box-body">
+            <div class="countdown" id="countdown">
+              <div class="countdown-item">
+                <span class="countdown-num" id="countdown-days">00</span>
+                <span class="countdown-label">Days</span>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <span class="countdown-num" id="countdown-hours">00</span>
+                <span class="countdown-label">Hours</span>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <span class="countdown-num" id="countdown-minutes">00</span>
+                <span class="countdown-label">Mins</span>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <span class="countdown-num" id="countdown-seconds">00</span>
+                <span class="countdown-label">Secs</span>
+              </div>
+            </div>
+            <p class="countdown-event">Shadow Realm Event</p>
           </div>
         </div>
 
@@ -163,7 +193,7 @@
 
         <div class="shop-card">
           <div class="shop-card-img">
-            <img src="{{ asset('assets/images/founderpack.png') }}" alt="Founder Pack">
+            <img src="{{ asset('assets/images/founderpack.png') }}" alt="Founder Pack" loading="lazy" decoding="async">
             <span class="shop-badge">Founder I</span>
           </div>
           <div class="shop-card-body">
@@ -177,7 +207,7 @@
 
         <div class="shop-card">
           <div class="shop-card-img">
-            <img src="{{ asset('assets/images/foundme1.png') }}" alt="Found Me">
+            <img src="{{ asset('assets/images/foundme1.png') }}" alt="Found Me" loading="lazy" decoding="async">
             <span class="shop-badge">Founder II</span>
           </div>
           <div class="shop-card-body">
@@ -191,7 +221,7 @@
 
         <div class="shop-card">
           <div class="shop-card-img">
-            <img src="{{ asset('assets/images/NPC.png') }}" alt="NPC">
+            <img src="{{ asset('assets/images/NPC.png') }}" alt="NPC" loading="lazy" decoding="async">
             <span class="shop-badge">Set</span>
           </div>
           <div class="shop-card-body">
@@ -205,7 +235,7 @@
 
         <div class="shop-card">
           <div class="shop-card-img">
-            <img src="{{ asset('assets/images/openban.png') }}" alt="Open Ban">
+            <img src="{{ asset('assets/images/openban.png') }}" alt="Open Ban" loading="lazy" decoding="async">
             <span class="shop-badge">Gandalf</span>
           </div>
           <div class="shop-card-body">
@@ -230,7 +260,7 @@
       <div class="featured-grid">
 
         <a href="http://aestheria.online/" target="_blank" class="featured-card">
-          <img src="{{ asset('assets/partners/Aestheria.png') }}" alt="Aestheria">
+          <img src="{{ asset('assets/partners/Aestheria.png') }}" alt="Aestheria" loading="lazy" decoding="async">
           <div class="featured-card-overlay">
             <h3>Aestheria <span class="highlight">SERVER</span></h3>
             <span><i class="fas fa-bell"></i> ServerHub</span>
@@ -238,7 +268,7 @@
         </a>
 
         <a href="https://aq.com/" target="_blank" class="featured-card">
-          <img src="{{ asset('assets/partners/AQW.png') }}" alt="AQW">
+          <img src="{{ asset('assets/partners/AQW.png') }}" alt="AQW" loading="lazy" decoding="async">
           <div class="featured-card-overlay">
             <h3>AQW <span class="highlight">SERVER</span></h3>
             <span><i class="fas fa-bell"></i> ServerHub</span>
@@ -246,7 +276,7 @@
         </a>
 
         <a href="https://augoeides.org/" target="_blank" class="featured-card">
-          <img src="{{ asset('assets/partners/Augo.png') }}" alt="Augo">
+          <img src="{{ asset('assets/partners/Augo.png') }}" alt="Augo" loading="lazy" decoding="async">
           <div class="featured-card-overlay">
             <h3>Augo <span class="highlight">SERVER</span></h3>
             <span><i class="fas fa-bell"></i> ServerHub</span>
@@ -254,7 +284,7 @@
         </a>
 
         <a href="https://fiend.online/" target="_blank" class="featured-card">
-          <img src="{{ asset('assets/partners/Fiend.png') }}" alt="Fiend">
+          <img src="{{ asset('assets/partners/Fiend.png') }}" alt="Fiend" loading="lazy" decoding="async">
           <div class="featured-card-overlay">
             <h3>Fiend <span class="highlight">SERVER</span></h3>
             <span><i class="fas fa-bell"></i> ServerHub</span>
@@ -270,7 +300,7 @@
     <div class="shop-modal">
       <button class="shop-modal-close" id="shopModalClose"><i class="fas fa-times"></i></button>
       <div class="shop-modal-img">
-        <img id="modalImg" src="" alt="">
+        <img id="modalImg" src="" alt="" loading="lazy">
       </div>
       <div class="shop-modal-body">
         <h3 class="shop-modal-title" id="modalTitle">Item Name</h3>

@@ -30,13 +30,13 @@
 .register-card {
   position: relative;
   background: linear-gradient(135deg, rgba(10, 10, 12, 0.95), rgba(20, 20, 25, 0.9));
-  border: 1px solid rgba(255, 0, 0, 0.15);
+  border: 1px solid var(--accent-015);
   border-radius: 16px;
   padding: 40px;
   backdrop-filter: blur(20px);
   box-shadow:
-    0 0 30px rgba(255, 0, 0, 0.08),
-    0 0 60px rgba(255, 0, 0, 0.04),
+    0 0 30px var(--accent-008),
+    0 0 60px var(--accent-004),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   animation: cardFloat 1s ease forwards;
   z-index: 1;
@@ -48,7 +48,7 @@
   inset: -1px;
   border-radius: 16px;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), transparent 40%, transparent 60%, rgba(255, 0, 0, 0.3));
+  background: linear-gradient(135deg, var(--accent-shadow-30), transparent 40%, transparent 60%, var(--accent-shadow-30));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -73,8 +73,8 @@
 }
 
 @keyframes logoPulse {
-  0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3)); }
-  50% { filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)); }
+  0%, 100% { filter: drop-shadow(0 0 5px var(--accent-shadow-30)); }
+  50% { filter: drop-shadow(0 0 15px var(--accent-060)); }
 }
 
 .register-header h1 {
@@ -131,14 +131,14 @@
 }
 
 .input-field input:focus {
-  border-color: var(--accent, hsla(0, 99%, 46%, 0.76));
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-010);
 }
 
 .input-field input:focus + label,
 .input-field input:not(:placeholder-shown) + label {
   transform: translateY(-26px) scale(0.8);
-  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  color: var(--accent);
 }
 
 .input-field label {
@@ -158,7 +158,7 @@
   border-radius: 8px;
   opacity: 0;
   transition: 0.25s ease;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.05);
+  box-shadow: 0 0 20px var(--accent-006);
   pointer-events: none;
 }
 
@@ -199,8 +199,8 @@
 }
 
 .checkbox-label input:checked ~ .checkmark {
-  background: var(--accent, hsla(0, 99%, 46%, 0.76));
-  border-color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .checkbox-label input:checked ~ .checkmark::after {
@@ -212,7 +212,7 @@
 }
 
 .checkbox-label a {
-  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  color: var(--accent);
   text-decoration: underline;
   transition: 0.25s ease;
 }
@@ -228,7 +228,7 @@
   gap: 10px;
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, hsla(0, 99%, 46%, 0.76), hsla(0, 99%, 36%, 0.8));
+  background: linear-gradient(135deg, var(--accent), hsla(0, 99%, 36%, 0.8));
   color: #fff;
   font-family: 'Oxanium', cursive;
   font-size: 0.95rem;
@@ -257,8 +257,8 @@
 
 .register-btn:hover {
   box-shadow:
-    0 0 20px rgba(255, 0, 0, 0.3),
-    0 0 40px rgba(255, 0, 0, 0.15);
+    0 0 20px var(--accent-shadow-30),
+    0 0 40px var(--accent-015);
   transform: translateY(-1px);
 }
 
@@ -363,7 +363,7 @@
 }
 
 .register-footer a {
-  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  color: var(--accent);
   font-weight: 600;
   transition: 0.25s ease;
 }
@@ -385,7 +385,7 @@
 .deco-circle {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(255, 0, 0, 0.08);
+  border: 1px solid var(--accent-008);
   animation: decoFloat 8s ease-in-out infinite;
 }
 
@@ -430,7 +430,7 @@
 
 .deco-line {
   position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.06), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-006), transparent);
 }
 
 .deco-line-1 {
@@ -452,7 +452,7 @@
 /* Placeholder fix for floating labels */
 .input-field input:not(:placeholder-shown) + label {
   transform: translateY(-26px) scale(0.8);
-  color: var(--accent, hsla(0, 99%, 46%, 0.76));
+  color: var(--accent);
 }
 
 .input-field input::placeholder {

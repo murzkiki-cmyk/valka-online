@@ -39,7 +39,7 @@
 
       <div class="nav-menu" id="navMenu">
         <ul class="nav-list">
-          <li class="nav-item"><a href="{{ url('/') }}#home" class="nav-link active"><i class="fas fa-house"></i> Home</a></li>
+          <li class="nav-item"><a href="{{ url('/') }}#home" class="nav-link" data-section="home"><i class="fas fa-house"></i> Home</a></li>
           <li class="nav-item"><a href="{{ url('/ranking') }}" class="nav-link"><i class="fas fa-trophy"></i> Ranking</a></li>
           <li class="nav-item"><a href="{{ url('/') }}#shop" class="nav-link"><i class="fas fa-store"></i> Store</a></li>
           <li class="nav-item dropdown">
@@ -58,6 +58,8 @@
         <div class="nav-auth">
           <a href="{{ url('/login') }}" class="auth-link login-link"><i class="fas fa-right-to-bracket"></i> Login</a>
           <a href="{{ url('/register') }}" class="auth-link register-link"><i class="fas fa-user-plus"></i> Register</a>
+          <button id="musicToggle" class="music-toggle-nav" title="Toggle Music"><i class="fas fa-music"></i> Music</button>
+          <button id="themeToggle" class="theme-toggle" title="Switch Theme"><i class="fas fa-palette"></i> Theme</button>
         </div>
       </div>
     </div>
@@ -68,12 +70,12 @@
   <section class="section brand-section">
     <div class="content-container">
       <ul class="brand-icons">
-        <li><img src="{{ asset('assets/images/1.png') }}" width="48" height="48" alt="icon"></li>
-        <li><img src="{{ asset('assets/images/2.png') }}" width="48" height="48" alt="icon"></li>
-        <li><img src="{{ asset('assets/images/3.png') }}" width="48" height="48" alt="icon"></li>
-        <li><img src="{{ asset('assets/images/4.png') }}" width="48" height="48" alt="icon"></li>
-        <li><img src="{{ asset('assets/images/5.png') }}" width="48" height="48" alt="icon"></li>
-        <li><img src="{{ asset('assets/images/6.png') }}" width="48" height="48" alt="icon"></li>
+        <li><img src="{{ asset('assets/images/1.png') }}" width="48" height="48" alt="icon" loading="lazy" decoding="async"></li>
+        <li><img src="{{ asset('assets/images/2.png') }}" width="48" height="48" alt="icon" loading="lazy" decoding="async"></li>
+        <li><img src="{{ asset('assets/images/3.png') }}" width="48" height="48" alt="icon" loading="lazy" decoding="async"></li>
+        <li><img src="{{ asset('assets/images/4.png') }}" width="48" height="48" alt="icon" loading="lazy" decoding="async"></li>
+        <li><img src="{{ asset('assets/images/5.png') }}" width="48" height="48" alt="icon" loading="lazy" decoding="async"></li>
+        <li><img src="{{ asset('assets/images/6.png') }}" width="48" height="48" alt="icon" loading="lazy" decoding="async"></li>
       </ul>
     </div>
   </section>
@@ -83,7 +85,7 @@
       <div class="footer-grid">
 
         <div class="footer-brand">
-          <img src="{{ asset('assets/images/valkalogo.png') }}" alt="Valka Online" class="footer-logo">
+          <img src="{{ asset('assets/images/valkalogo.png') }}" alt="Valka Online" class="footer-logo" loading="lazy" decoding="async">
           <p>Valka Online marketplace the release etras thats sheets continig passag.</p>
           <div class="footer-contact">
             <p><i class="fas fa-location-dot"></i> Address : PO Box W75 Street lan West new queens</p>
@@ -136,17 +138,29 @@
     <div class="footer-bottom">
       <div class="content-container">
         <p>&copy; 2026 Valka Online. All Right Reserved | Website Design by: <span class="footer-signature">Blood</span></p>
-        <a href="https://www.tiktok.com/@bloodmainn" target="_blank"><img src="{{ asset('assets/images/blood.png') }}" width="60" height="auto" alt=""></a>
+        <a href="https://www.tiktok.com/@bloodmainn" target="_blank"><img src="{{ asset('assets/images/blood.png') }}" width="60" height="auto" alt="" loading="lazy" decoding="async"></a>
       </div>
     </div>
   </footer>
 
   <a href="#top" class="back-top-btn" id="backToTop">
+    <svg class="progress-ring" viewBox="0 0 44 44">
+      <circle class="progress-ring-track" cx="22" cy="22" r="18" fill="none"/>
+      <circle class="progress-ring-fill" id="progressRing" cx="22" cy="22" r="18" fill="none" stroke-dasharray="113.1" stroke-dashoffset="0"/>
+    </svg>
     <i class="fas fa-chevron-up"></i>
   </a>
 
-  <audio id="bgMusic" src="{{ asset('assets/musics/Marchdown.mp3') }}" loop preload="auto"></audio>
-  <button id="musicToggle" class="music-toggle"><i class="fas fa-music"></i></button>
+  <audio id="bgMusic" src="{{ asset('assets/musics/Marchdown.mp3') }}" loop preload="auto" crossorigin="anonymous"></audio>
+  <canvas id="visualizer" class="visualizer"></canvas>
+  <div id="swordCursor" class="sword-cursor">
+    <svg viewBox="0 0 40 40" fill="none">
+      <path d="M20 2 L24 18 L20 16 L16 18 L20 2Z" fill="var(--accent)" opacity="0.9"/>
+      <rect x="16" y="16" width="8" height="2" rx="0.5" fill="var(--accent)" opacity="0.9"/>
+      <rect x="17" y="18" width="6" height="8" rx="1" fill="var(--accent)" opacity="0.7"/>
+      <circle cx="20" cy="28" r="2" fill="var(--accent)" opacity="0.9"/>
+    </svg>
+  </div>
 
   <script src="{{ asset('assets/js/script.js') }}" defer></script>
   @stack('scripts')

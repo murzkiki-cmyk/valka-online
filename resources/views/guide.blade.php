@@ -145,6 +145,64 @@
   color: var(--accent);
   font-weight: 600;
 }
+
+.class-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+.class-stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+.class-stat-header span:first-child {
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--ff-alt);
+  text-transform: uppercase;
+}
+.class-stat-header span:last-child {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+.class-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.class-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.class-bar-label {
+  width: 32px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.class-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--bg-input);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.class-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.8s ease;
+  box-shadow: 0 0 6px var(--accent-glow);
+}
 </style>
 @endpush
 
@@ -188,6 +246,44 @@
                 <li><span class="highlight-text">Archer</span> — Ranged precision, high crit rate, mobility</li>
                 <li><span class="highlight-text">Assassin</span> — Stealth, burst damage, evasion</li>
               </ul>
+              <div class="class-stats">
+                <div class="class-stat">
+                  <div class="class-stat-header"><span>Warrior</span><span>STR 9 · AGI 4 · INT 3 · DEF 9</span></div>
+                  <div class="class-bar-group">
+                    <div class="class-bar"><span class="class-bar-label">STR</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="90%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">AGI</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="40%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">INT</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="30%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">DEF</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="90%"></div></div></div>
+                  </div>
+                </div>
+                <div class="class-stat">
+                  <div class="class-stat-header"><span>Mage</span><span>STR 3 · AGI 5 · INT 9 · DEF 4</span></div>
+                  <div class="class-bar-group">
+                    <div class="class-bar"><span class="class-bar-label">STR</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="30%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">AGI</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="50%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">INT</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="90%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">DEF</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="40%"></div></div></div>
+                  </div>
+                </div>
+                <div class="class-stat">
+                  <div class="class-stat-header"><span>Archer</span><span>STR 5 · AGI 9 · INT 4 · DEF 5</span></div>
+                  <div class="class-bar-group">
+                    <div class="class-bar"><span class="class-bar-label">STR</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="50%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">AGI</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="90%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">INT</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="40%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">DEF</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="50%"></div></div></div>
+                  </div>
+                </div>
+                <div class="class-stat">
+                  <div class="class-stat-header"><span>Assassin</span><span>STR 7 · AGI 8 · INT 3 · DEF 4</span></div>
+                  <div class="class-bar-group">
+                    <div class="class-bar"><span class="class-bar-label">STR</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="70%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">AGI</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="80%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">INT</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="30%"></div></div></div>
+                    <div class="class-bar"><span class="class-bar-label">DEF</span><div class="class-bar-track"><div class="class-bar-fill" style="width:0" data-width="40%"></div></div></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </details>
         </div>
@@ -245,5 +341,20 @@
     </div>
   </div>
 </div>
+
+@push('scripts')
+<script>
+document.querySelectorAll('.guide-card details').forEach(details => {
+  details.addEventListener('toggle', function() {
+    if (this.open) {
+      this.querySelectorAll('.class-bar-fill').forEach(bar => {
+        const w = bar.getAttribute('data-width');
+        if (w) setTimeout(() => bar.style.width = w, 100);
+      });
+    }
+  });
+});
+</script>
+@endpush
 
 @endsection
